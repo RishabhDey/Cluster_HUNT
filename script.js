@@ -14,6 +14,6 @@ function allSpotsVisited() {
 
 function checkCompletion() {
   if (allSpotsVisited()) {
-    window.location.href = "complete.html";
+    window.location.href = "CLUSTERRRRRR.html";
   }
 }
