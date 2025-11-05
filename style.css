@@ -1,0 +1,89 @@
+/* General page styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Container to keep content centered with spacing */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* spacing between elements */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3); /* optional semi-transparent overlay for readability */
+  border-radius: 12px;
+}
+
+/* Headings */
+h1, h2, h3, p {
+  margin: 0.5em 0;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Links */
+a {
+  color: #fff;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+/* Forms */
+input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Spot-specific backgrounds using body ID */
+body#index { background-image: url('images/index-bg.jpg'); }
+body#spot1 { background-image: url('images/spot1-bg.jpg'); }
+body#spot2 { background-image: url('images/spot2-bg.jpg'); }
+body#spot3 { background-image: url('images/spot3-bg.jpg'); }
+body#spot4 { background-image: url('images/spot4-bg.jpg'); }
+body#spot5 { background-image: url('images/spot5-bg.jpg'); }
+body#complete { background-image: url('images/complete-bg.jpg'); }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  button, input[type="email"] {
+    width: 80%;
+    font-size: 1.1rem;
+  }
+}
