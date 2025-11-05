@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scavenger Hunt – Complete</title>
+  <script src="script.js"></script>
+</head>
+<body onload="verifyCompletion()">
+  <div id="main">
+    <h1>🎉 You found all 5 spots!</h1>
+    <p>Enter your email to claim your reward:</p>
+
+    <form id="emailForm">
+      <input type="email" id="email" required placeholder="you@example.com" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+  </div>
+
+  <div id="notComplete" style="display:none;">
+    <h1>⛔ Not complete yet!</h1>
+    <p>You haven’t found all 5 spots. Keep scanning the QR codes!</p>
+    <a href="index.html">Back to start</a>
+  </div>
+
+  <script>
+    function verifyCompletion() {
+      if (!allSpotsVisited()) {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("notComplete").style.display = "block";
+      }
+    }
+
+    document.getElementById("emailForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!allSpotsVisited()) return;
+
+      const email = document.getElementById("email").value;
+
+      const res = await fetch(
+        "https://script.google.com/macros/u/1/s/AKfycbyDucFaEAxK-h0YnKzadmG67U96kc3frASGRBG1LmLEUMoAaaPJfhaZMsAy4PHDDhUb/exec", 
+        {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+        }
+    );
+
+      if (res.ok) {
+        document.getElementById("message").textContent = "✅ Email submitted! Check your inbox.";
+        localStorage.clear();
+      } else {
+        document.getElementById("message").textContent = "❌ Something went wrong. Try again.";
+      }
+    });
+  </script>
+</body>
+</html>
